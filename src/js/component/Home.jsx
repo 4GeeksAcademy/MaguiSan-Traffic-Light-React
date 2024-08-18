@@ -1,34 +1,19 @@
 import React, { useState } from "react";
 const Home = () => {
 	// let [number,setNumber]=useState(0)
-	const [btnColor,setBtnColor] = useState("btn-danger")
+	const [btnColor, setBtnColor] = useState("")
 	
-	function ligthColor() {
-		if (btnColor==="btn-danger") {
-			console.log("holi");
-			setBtnColor("")
-		}
+	const lightColor=(color)=> {
+		setBtnColor(color);
 	}
-
-	// function ligthColor(index) {
-	// 	if (index !== btnColor.length) {
-	// 		console.log("holi");
-	// 	}
-	// }
 	console.log(btnColor);
 	
 	return (
-		<div className="container-fluid p-3 w-50">
-			{/* <div className="container bg-dark d-flex flex-column">h</div> */}
-			<div className="container-fluid w-25 d-flex flex-column text-center bg-black rounded-4">
-				<button type="button" className={"btn btn-danger m-1 rounded-circle"} onClick={ligthColor}></button>
-				<button type="button" className={"btn btn-success m-1 rounded-circle"} onClick={ligthColor}></button>
-				<button type="button" className={"btn btn-success m-1 rounded-circle"} onClick={ligthColor}></button>
-				{/* {
-					btnColor.map((item, index) => (
-						<button key={index} type="button" className="btn btn-success m-1 rounded-circle" onClick={ligthColor}>{item}</button>
-					))
-				} */}
+		<div className="container d-flex justify-content-center p-3">
+			<div className="d-flex flex-column align-items-center justify-content-center bg-black rounded-4">
+				<button type="button" className="btn btn-danger m-2 p-5 rounded-circle" style={{ boxShadow: btnColor === "btn-danger" ? "0px 0px 40px 15px red" : "none" }} onClick={() => { lightColor("btn-danger") }}></button>
+				<button type="button" className="btn m-2 btn-warning p-5 rounded-circle" style={{ boxShadow: btnColor === "btn-warning" ? "0px 0px 40px 15px yellow" : "none" }} onClick={() => { lightColor("btn-warning") }}></button>
+				<button type="button" className="btn m-2 btn-success p-5 rounded-circle" style={{ boxShadow: btnColor === "btn-success" ? "0px 0px 40px 15px green" : "none" }} onClick={() => { lightColor("btn-success") }}></button>
 			</div>
 		</div>
 	);
